@@ -1,0 +1,12 @@
+version: '3'
+services:
+  backend:
+    image: node:16
+    container_name: backend
+    volumes:
+      - .:/app
+      - /var/run/docker.sock:/var/run/docker.sock
+    working_dir: /app
+    command: sh -c "npm install && node server.js"
+    ports:
+      - "5000:5000"
